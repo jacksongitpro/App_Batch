@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Modelo\Base.cs" />
     <Compile Include="Modelo\Material.cs" />
+    <Compile Include="Modelo\Stock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

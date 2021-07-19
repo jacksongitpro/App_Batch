@@ -43,9 +43,52 @@ namespace App_Batch.Modelo
 
                 };Materiales.Add(M);
             }
-            //ahora creamos un procedimiento que lea la lista creada y defina cual es el mayor y menor 
+            //ahora creamos un procedimiento que lea la lista creada y defina cual es el mayor y menor
+            CalcularStock(Materiales);
+        }
 
+        public static void CalcularStock(List<Material> Stock)
+        {           
+            long valor = 0;
+            long valorMin = 0;
+            long valorMax = 0;
+            List<Stock> Stokeo = new List<Stock>();
+            for (int i = 0; i < Stock.Count; i++)
+            {
+                valor = Stock[i].Cantidad;
+                //El primer valor es el minimo y maximo hasta que se diga lo contrario.
+                if (i == 0)
+                {
+                    valorMax = valor;
+                    valorMin = valor;
+                }
 
+                if (valor >= valorMax)
+                {
+                    valorMax = Stock[i].Cantidad;
+                    Stock M = new Stock()
+                    {
+                        Nombre = Stock[i].Nombre,
+                        Cantidad = Stock[i].Cantidad,
+                        Descripcion = "El material de Mayor Stock"
+
+                }; Stokeo.Add(M);
+                }
+
+                if (valor < valorMin)
+                {
+                    valorMin = Stock[i].Cantidad;
+                    Stock m = new Stock()
+                    {
+                        Nombre = Stock[i].Nombre,
+                        Cantidad = Stock[i].Cantidad,
+                        Descripcion = "El material de menor Stock"
+
+                    }; Stokeo.Add(m);
+                }
+            }
+            Console.WriteLine($"El minimo es {valorMin} y el maximo es {valorMax}");
+            Console.ReadLine();
         }
     }
 }
