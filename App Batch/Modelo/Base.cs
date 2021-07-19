@@ -87,8 +87,8 @@ namespace App_Batch.Modelo
                     }; Stokeo.Add(m);
                 }
             }
-            Console.WriteLine($"El minimo es {valorMin} y el maximo es {valorMax}");
-            Console.ReadLine();
+            
+            //ahora deberia ser generada la funcion que genera el nuevo reporte leyendo la lista de Stock
         }
     }
 }
